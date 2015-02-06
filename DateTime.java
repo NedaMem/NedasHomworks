@@ -11,6 +11,13 @@ public class DateTime {
 		
 		
 		
+     //Date date = new Date();
+   //  System.out.println(date.toString());
+		
+		//JOptionPane.showMessageDialog(null, new Date());
+		
+	
+		
 		LocalDateTime current = LocalDateTime.now();
 		System.out.println("The current date is " + current.getDayOfMonth() +
 				"/" + current.getMonthValue() + "/" 
