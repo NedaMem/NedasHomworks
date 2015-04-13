@@ -1,50 +1,70 @@
-package quadraticequation;
-import java.math.*;
+package sixmars;
 import java.util.Scanner;
 
-
-
 public class QuadraticEquation {
+	private int a;
+	private int b;
+	private int c;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		double a;
-		double b;
-		double c;
-		double d;
-		double root1;
-		double root2;
-		
-		Scanner input1 =new Scanner(System.in);
-		System.out.print("Please enter a,b,c : ");
-		 a=input1.nextDouble();
-		 b=input1.nextDouble();
-		 c=input1.nextDouble();
-		 
-		 d= ((b*b) - (4*a*c)) ;
-		 if (d<0)
-		 {
-		System.out.print("The equation has no real roots")	;
-		
-		 } 
-		 else if (d == 0)
-		 {
-			 double root3= -b/ (2*a);
-			 System.out.print("The equation has two root  " + root3);
-			 
-		 }
-		 else 
-		 {
-			 root1= (-b + Math.sqrt(d))/(2*a);
-			 root2= (-b - Math.sqrt(d))/(2*a);
-			 
-			 System.out.print("The equation has two roots  " + root1 + " and " + root2);
-		 }
-		
-		
-		input1.close();
-		
-
+	// Default constructor
+	QuadraticEquation() {
+		a = 0;
+		b = 0;
+		c = 0;
 	}
 
+	// user specifies coefficients
+	QuadraticEquation(int newA, int newB, int newC) {
+		a = newA;
+		b = newB;
+		c = newC;
+	}
+
+	// Get methods for coefficients
+	public int getA() {
+		return a;
+	}
+
+	public int getB() {
+		return b;
+	}
+
+	public int getC() {
+		return c;
+	}
+
+	// Return discriminant (b^2-4ac)
+	public double getDiscriminant() {
+		return (Math.pow(b, 2) - 4 * a * c);
+	}
+
+	// Return the roots
+	public double getRoot1() {
+		return (((-b) + (Math.sqrt(getDiscriminant())))/ (2 * a));
+	}
+
+	public double getRoot2() {
+		return (((-b) - (Math.sqrt(getDiscriminant()))) / (2 * a));
+	}
+
+}
+
+public class TestQuadraticEquation {
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter coefficients a, b, and c in order: ");
+
+		int a = input.nextInt();
+		int b = input.nextInt();
+		int c = input.nextInt();
+
+		QuadraticEquation qe = new QuadraticEquation(a, b, c);
+		if (qe.getDiscriminant() > 0) {
+			System.out.println("The roots of the equation are " + qe.getRoot1()
+					+ " and " + qe.getRoot2());
+		} else {
+			System.out.println("The equation has no roots.");
+		}
+	}
 }
