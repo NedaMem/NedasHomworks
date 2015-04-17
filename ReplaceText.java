@@ -1,4 +1,4 @@
-package ninthapril;
+package tioapril;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,8 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class ReplaceText {
-
-	public static void main(String[] args) throws IOException{
+public static void main(String[] args) throws IOException{
 		
 		String str;
 		String oldtext = ""   ;
@@ -30,6 +29,5 @@ public class ReplaceText {
 		}
 	
 	}
-}
 
-			
+}
